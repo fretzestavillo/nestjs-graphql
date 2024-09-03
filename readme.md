@@ -1,4 +1,4 @@
-# build the two application
+# build and run application
 
 docker-compose up --build
 
