@@ -2,29 +2,35 @@ services:
   mongo:
     image: mongo:latest
     ports:
-      - "27017:27017"
+      - '27017:27017'
     volumes:
       - mongo_data:/data/db
-
   backend:
-    build:
-      context: ./backend
-      dockerfile: Dockerfile
+    extends:
+      file: ./docker/base.yml
+      service: nx
     ports:
-      - "3000:3000"
-    volumes:
-      - ./backend:/app  
+      - 3000:3000
     environment:
-      - MONGODB_URI=mongodb://mongo:27017/school  
-
-  frontend:
-    build:
-      context: ./frontend
-      dockerfile: Dockerfile
-    ports:
-      - "5173:5173"  
+      PORT: 3000
+      ALLOWED_ORIGINS: http://localhost:4200
+      MONGODB_URI: mongodb://mongo:27017/school
     volumes:
-      - ./frontend:/app  
+      - ./backend:/app
+    command: |
+      nx serve backend
+  web:
+    extends:
+      file: ./docker/base.yml
+      service: nx
+    ports:
+      - 4200:4200
+    environment:
+      NX_PUBLIC_API_URL: http://localhost:3000
+    command: |
+      nx serve web --host=0.0.0.0
+    # volumes:
+    #   - ./web:/app
 
 volumes:
   mongo_data:
