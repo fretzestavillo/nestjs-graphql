@@ -2,29 +2,28 @@ services:
   mongo:
     image: mongo:latest
     ports:
-      - "27017:27017"
+      - '27017:27017'
     volumes:
       - mongo_data:/data/db
 
   backend:
     build:
-      context: ./backend
+      context: ./apps/backend
       dockerfile: Dockerfile
     ports:
-      - "3000:3000"
+      - '3000:3000'
     volumes:
-      - ./backend:/app  
+      - ./backend:/app
     environment:
-      - MONGODB_URI=mongodb://mongo:27017/school  
-
-  frontend:
+      - MONGODB_URI=mongodb://mongo:27017/school
+  web:
     build:
-      context: ./frontend
+      context: ./apps/web
       dockerfile: Dockerfile
     ports:
-      - "5173:5173"  
+      - '5173:5173'
     volumes:
-      - ./frontend:/app  
+      - ./web:/app
 
 volumes:
   mongo_data:
