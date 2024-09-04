@@ -1,20 +1,6 @@
-# Use the official Node.js image as the base image
-FROM node:18
-
-# Set the working directory
-WORKDIR /app
-
-# Copy package.json and package-lock.json (or yarn.lock)
-COPY package*.json ./
-
-# Install dependencies
-RUN npm install
-
-# Copy the rest of your application files
-COPY . .
-
-# Expose the port the app runs on
-EXPOSE 5173
-
-# Start the application in development mode
-CMD ["npm", "run", "dev"]
+FROM docker.io/nginx:stable-alpine
+ENV PORT 8080
+COPY dist/apps/web/* /usr/share/nginx/html/
+COPY apps/web/nginx.conf /etc/nginx/conf.d/configfile.template
+RUN sh -c "envsubst '\$PORT' < /etc/nginx/conf.d/configfile.template > /etc/nginx/conf.d/default.conf"
+CMD ["nginx", "-g", "daemon off;"]
