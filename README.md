@@ -1,15 +1,26 @@
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;This project combines React and webpack for front end, Nestjs and GraphQL for back end also for handling API and Monggodb for data persistent while running in docker
 
-### Requirements
+## Requirements
 
 - Docker
 - Node
 
-## Run application
+## Clone the repository:
 
-To run the dev server for your app, use:
+```
+git clone https://github.com/fretzestavillo/reactjs-nestjs.git
+```
 
-```sh
+## Change Directory:
+
+```
+cd reactjs-nestjs/
+```
+
+## Run
+
+```
+npm run install
 npm run docker
 ```
 
@@ -19,7 +30,5 @@ Web:
 [http://localhost:4200](http://localhost:4200)
 
 API:  
-[http://localhost:3000](http://localhost:3000)
-
 GraphQL Playground:  
 [http://localhost:3000/graphql](http://localhost:3000/graphql)
