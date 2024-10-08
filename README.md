@@ -20,7 +20,7 @@ cd reactjs-nestjs/
 ## Run
 
 ```
-npm run install
+npm install
 npm run docker
 ```
 
