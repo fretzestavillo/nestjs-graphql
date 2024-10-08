@@ -1,6 +1,7 @@
-## Requirements
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;This project combines React and webpack for front end, Nestjs and GraphQL for back end also for handling API and Monggodb for data persistent while running in docker
 
-- npm i
+### Requirements
+
 - Docker
 - Node
 
