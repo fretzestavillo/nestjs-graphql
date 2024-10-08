@@ -1,5 +1,6 @@
 ## Requirements
 
+- npm i
 - Docker
 - Node
 
