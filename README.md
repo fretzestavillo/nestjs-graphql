@@ -8,7 +8,7 @@
 ## Clone the repository:
 
 ```
-git clone https://github.com/fretzestavillo/reactjs-nestjs.git
+git clone https://github.com/fretzestavillo/nestjs-graphql.git
 ```
 
 ## Change Directory:
